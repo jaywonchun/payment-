@@ -1,0 +1,65 @@
+/*global*/
+
+.wrapper {
+	height:100%;
+}
+
+
+
+/*home*/
+.jumbotron {
+	background-image: url("images/Fintech.jpg");
+    background-size: cover;
+   	padding-top: 0px;
+   	min-height: 593px;
+   	background-position: 0px -58px;
+
+}
+
+.jumbotron h2 {
+	color: #eeba30;
+	font-size:18px;
+	font-family: sans-serif;
+	font-style: italic;
+	margin-bottom: 30px;
+
+}
+
+.jumbotron h1{
+	color: #eeba30;
+	font-size: 25px;
+	font-family: "Trebuchet MS"
+}
+
+.navbar-default {
+   border: none;
+   margin-bottom: 0px;
+
+}
+
+.formBox{
+	position: absolute;
+	left:150px;
+	top:65px;
+
+}
+
+/*.formBox h1{
+	position: absolute;
+}*/
+
+.formNameStyle{
+	display: inline;
+	width: 160px;
+	margin-right: 10px;
+	margin-bottom:20px;
+}
+
+.formStyle {
+	width: 334px;
+}
+
+
+
+
+
