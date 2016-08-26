@@ -1,0 +1,167 @@
+
+
+<div class="row">
+	<div class=" col-md-12 container-fluid" id="accounthero">
+	 	<h2 id="account">Welcome {{ctrl.username}}</h2>
+	</div>
+
+
+	<div class="row list-group">
+		<div class="col-xs-12 col-md-3 " id = "friendlist">
+			
+
+		 		 <a href   
+		 		 ng-repeat="group in ctrl.groups track by $index" 
+		 		 class="list-group-item list-group-item-action"
+		 		 ng-class="{'selected':ctrl.index == $index}"
+		 		 ng-click="ctrl.update(group, $index)"
+
+		 		 >{{group}}</a>
+		  
+
+		</div>
+				<div class="col-xs-12 col-md-12    " id = "ifnogroup" ng-show = "ctrl.hideoriginal">
+				<p id = 'nogrouptag'> Looks like you aren't in any groups... </p>
+
+				<img src="/images/thinking.jpeg" id="nogroupimg" class ="animated infinite bounce">
+
+
+
+				</div>
+			<div class="row list-group">
+
+
+
+				
+						<!-- this is to hide it -->
+				<div class="col-xs-12 col-md-8 " id = "groupdetail" ng-hide= "ctrl.hideoriginal" >
+			
+
+			<button type="button" ng-click = "ctrl.leaveGroup()" class="btn btn-success btn-lg leaveGroup"><span class="glyphicon glyphicon-chevron-right"></span> Leave Group</button>
+
+
+			<button type="button" ng-click="ctrl.pay()" id="payBalance" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-saved"></span> Pay Balance</button>
+
+					 <div id = 'balancediv'>
+					 	<p id="balanceTitle"> Balance:  </p>
+					 	<p id= "balance" > ${{ctrl.balance | number:0 }}  </p>
+					</div>
+	
+
+					<div id ="charge">
+					<p id = "chargetitle">Post your purchases here! </p>
+				 		<form ng-submit="ctrl.postCharge()" id="chargeForm" >
+				 			 <input type="text" 
+								class= "form-control " 
+								name="amount" 
+								placeholder="Amount"
+								ng-model="ctrl.amount"
+								required
+								id="chargeInput"
+
+								> 
+								<input type="text" 
+								class= "form-control " 
+								name="description" 
+								placeholder="Description"
+								ng-model="ctrl.description"
+								required
+								> 
+
+								<input type="submit" id ="paymentbtn"  ng-name="user_submit"  class = "btn btn-primary  " value="{{ctrl.payment_btn}}">
+
+				 		</form>
+
+				 		<!-- <button type="button" ng-click="ctrl.pay()" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-saved"></span> Pay Balance</button>
+ -->
+						  
+					</div>
+
+
+						<ul class="list-group" id="transactionlist">
+						  <li class="list-group-item col-md-10"  id ="listcharge" ng-repeat="charge in ctrl.charges">
+						  	<h3 class ="chargelist">  <span> Price:  </span>${{charge.amount}}   </h3>
+						  	<h3 class ="chargelist">   <span> Details: </span>{{charge.description}}  </h3>
+						  	<h3 class ="chargelist">  <span>Posted by: </span>{{charge.Postedby}} </h3>
+
+
+						  </li>
+	 
+						</ul>
+				</div>
+
+				<!-- stack div on top -->
+				<div class=" flip-in col-xs-12 col-md-8" id ="stack" ng-show="ctrl.isClicked">
+<p id = "warning">Select a group to view transactions </p>
+				</div>
+
+
+
+
+			</div>	
+
+	</div>	
+
+
+    <div class="invoice-box" ng-hide = "ctrl.hideoriginal">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+          
+            
+           
+            <tr class="details">
+                <td id = "invoiceTitle">
+                    Outstanding Payments
+                </td>
+                
+ 
+            </tr>
+            
+            <tr class="heading">
+                <td>
+                    Item
+                </td>
+                
+                <td>
+                    Price
+                </td>
+            </tr>
+            
+            <tr class="item" ng-repeat = "item in ctrl.owe">
+                <td>
+                   {{item.oweName}}
+                </td>
+                
+                <td>
+                   {{item.oweAmount | number:0}}
+                </td>
+          
+            
+          
+            
+            <tr class="total">
+                <td></td>
+                
+                <td>
+                   Total: ${{ctrl.sum | number:0}}
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+
+
+
+
+
+

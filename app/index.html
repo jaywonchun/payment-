@@ -2,22 +2,108 @@
 <html>
 <head>
 	<title></title>
-	  
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"> </script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+ -->  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.8/angular-messages.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+  <script type="text/javascript" src="ui-bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+
+<!--   <script src="angular-ui-notification.min.js"></script>
+ -->
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script type="text/javascript" 
+        src="bower_components/angular-payments/lib/angular-payments.js">
+</script>
+
+<script type="text/javascript" 
+        src="bower_components/angular-ui-notification/src/angular-ui-notification.js">
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 
 
 
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="index.css">
+
+
+
+
+<!--   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
+
+	  <link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.min.css">
+
+<!-- <link type="text/javascript" 
+        href="bower_components/animate.css/animate.min.css">
+</script> -->
+
+
+
+<!-- Google fonts -->
+
+<!-- welcome bs -->
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Pacifico" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Baloo+Tamma|Poiret+One" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+
+<!-- table -->
+<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+
+<!--        -->
+<!-- no group -->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|Fjalla+One" rel="stylesheet">
+
+<!-- click to choose group -->
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="index.css">
+<!--   <link rel="stylesheet" href="angular-ui-notification.min.css">
+ -->
+  
+<link rel="stylesheet" type="text/css" href="searchcss/demo.css">
+
+<!-- imported from landing page -->
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href="landingpage/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="landingpage/fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+<script src="/socket.io/socket.io.js"></script>
 
   <script src="app.js"></script>
+  <script src="controllers/home.ctrl.js"></script>
+  <script src="controllers/homenav.ctrl.js"></script>
+  <script type="text/javascript" src="controllers/modal.ctrl.js"></script>
+  <script type="text/javascript" src="controllers/account.ctrl.js"></script>
+  <script type="text/javascript" src="controllers/accountnav.ctrl.js"></script>
+  <script type="text/javascript" src="controllers/coup.ctrl.js"></script>
+  <script type="text/javascript" src="controllers/card.ctrl.js"></script>
+  <script type="text/javascript" src="controllers/grouplist.ctrl.js"></script>
+
 
 </head>
+
+<!-- App Services -->
+  <script type="text/javascript" src="services/userSrv.js"></script>
+  <script type="text/javascript" src="services/groupSrv.js"></script>
+
+
+
+
 
 <body ng-app="CoupApp">
 
     <div ui-view></div>
+
+
+
 </body>
 
 </html>

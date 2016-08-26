@@ -1,24 +1,148 @@
+<div class = row> 
+<div class="jumbotron col-md-12 col-xs-12">
+<div class = "formBox  form-group col-md-6 col-xs-12">
 
-<div class="jumbotron">
-<div class = "formBox form-group">
   <h1>Split your payments. All in one place.</h1>
   <h2>See how you can track your payments with one simple step. </h2>
 
-  <form name = "frm" method= "post" action="/">
-        <input type="text" class= "form-control formNameStyle input-lg " name="user_name" placeholder="First Name">
-        <input type="text" class= "form-control formNameStyle input-lg  " name="user_name" placeholder="Last Name">
-         <br>
-        <input type="email" class= "form-control formStyle input-lg " name="user_email" placeholder="Email" ng-model="user.email"><br>
-        <input type="password" class= "form-control formStyle input-lg"  name="user_password" placeholder="Password"> <br>
-        <input type="submit" class = "btn btn-primary formStyle input-lg" value="Submit">
+  <form name = "frm" ng-submit="ctrl.save(frm.$valid)" method= "post" >
+    <div id = "signUpNameHeight">
+        <input type="text" 
+        class= "form-control formNameStyle  input-lg " 
+        name="user_firstname" 
+        placeholder="First Name"
+        ng-model="ctrl.firstName"
+        required
+        ng-pattern="/^(\D)+$/"
+        > 
+      
+         <input type="text" 
+        class= "form-control formNameStyle  input-lg " 
+        name="user_lastname" 
+        placeholder="Last Name"
+        ng-model="ctrl.lastName"
+        required
+        ng-pattern="/^(\D)+$/"
+        > 
 
+        <span ng-messages=" frm.user_firstname.$error || frm.user_lastname.$error">
+            <span ng-message="pattern" class ="formValidationFont block"> No numbers first name! </span>
+        </span>
+
+     <!--      <span ng-messages="frm.user_lastname.$error">
+            <span ng-message="pattern" class ="formValidationFont block"> No numbers last name! 
+
+          </span> -->
+
+         <br>
+    </div>
+<!-- "/^[a-zA-Z\d\-\_]+$/"
+
+"/^[a-zA-Z0-9]*$/"  -->
+  
+        <input 
+          type="text" 
+          class= "form-control formStyle input-lg" 
+          ng-class="{formValidation: frm.user_username.$error.minlength && frm.user_username.$dirty }"
+
+
+         
+          name="user_username" 
+          ng-minlength="5"
+          placeholder="Username" 
+          ng-model="ctrl.username"
+          ng-change="ctrl.removeSpace()"
+          required 
+          >
+
+       <span ng-messages="frm.user_username.$error" ng-if="frm.user_username.$touched">
+                         <span ng-message="minlength" class ="formValidationFont"> Username has to be at least 5 characters </span>
+
+       </span>
+    <br>
+
+<!-- <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+        <p ng-message="minlength">Your name is too short.</p>
+        <p ng-message="maxlength">Your name is too long.</p>
+        <p ng-message="required">Your name is required.</p>
+      </div>
+     -->
+    
+
+
+
+        <input type="email" required class= "form-control formStyle input-lg " name="user_email" placeholder="Email" ng-model="ctrl.email"><br>
+
+        <input 
+        type="password" 
+        ng-minlength="5" 
+        required 
+        ng-model="ctrl.password"
+        class= "form-control formStyle input-lg" 
+        ng-class="{formValidation: frm.user_password.$error.minlength && frm.user_password.$dirty }"
+        name="user_password" 
+        placeholder="Password"> 
+
+       <span ng-messages="frm.user_password.$error" ng-if="frm.user_password.$touched">
+              <span ng-message="minlength" class ="formValidationFont"> password has to be at least 5 characters! </span>
+       </span>
+       <br>
+       
+        <input type="submit"  ng-name="user_submit"  class = "btn btn-primary formStyle input-lg" value="{{ctrl.register_btn}}">
+  
+      
 
       </form>
 
     </div>
+    
+ </div>
+
+</div>
+
+<div id="wrapper" class = "row">
+  <div id="three-column" class="container">
+    <div class="title">
+      <h2>Tracking group payments have never been easier</h2>
+      
+    </div>
+    <div class="boxA col-md-4 col-xs-12"> 
+
+      <img src="images/ss.png">
+      <p>Add  friends and friends of friends to a group and track your spendings. Leave the group once all payments are settled </p>
+    </div>
+    <div class="boxB col-md-4 col-xs-12">
+      <img src="images/money.png">
+
+      <p>No more hassle of keeping track transactions. Know the exact amount of debt and whom to send it to. </p>
+    </div>
+    <div class="boxC col-md-4 col-xs-12">
+      <img src="images/teamwork.png">
+      <p> Perfect for any group activities such as socials and vacations, as well as for couples and roomates</p>
+    </div>
+  </div>
 </div>
 
 
+
+
+
+
+
+<!-- <div id="welcome">
+  <div class="container">
+    <div class="title">
+      <h2>Fusce ultrices fringilla metus</h2>
+      <span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue</span>
+    </div>
+    <ul class="actions">
+      <li><a href="#" class="button">Etiam posuere</a></li>
+    </ul>
+  </div>
+</div> -->
+<div id="copyright" class="container">
+  <p>&copy; JohnChun. All rights reserved.
+</div>
 
 
 

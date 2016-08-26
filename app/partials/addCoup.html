@@ -1,0 +1,54 @@
+
+
+
+ 
+
+                <div class="flexsearch">
+                        <div class="flexsearch--wrapper">
+                            
+                    <form class="flexsearch--form" ng-submit= "ctrl.findUser()">
+                            <div class="flexsearch--input-wrapper">
+                                    <input class="flexsearch--input" ng-model="ctrl.username" type="search" placeholder="search"
+                                   ng-disabled = "ctrl.disable"
+                                    >
+                                </div>
+
+                                <input type="submit" ng-disabled= "disableSearch(ctrl.username)"  class="flexsearch--submit" value="&#10140;"/>
+                            </form>
+                        </div>
+
+                          <div class="panel" id="search-results">
+                          <ul>
+                              <li ng-repeat="friend in ctrl.friends  | filter:ctrl.username  track by $index"  ng-hide = "ctrl.disable">
+
+                              <p>
+                                  {{friend}}   
+                                <button id = "addicon" ng-disabled ="friend.shouldIdisable" ng-click="ctrl.updateFriends(friend)" ng-hide="friend.shouldIdisable" 
+
+
+                                >
+                                  <img src = 'images/add.png'   
+                                  /> 
+
+
+
+                                </button> 
+
+                                    <img src = 'images/disabled.png'  id ="addicon" ng-show="friend.shouldIdisable" 
+                                  /> 
+                              </p>      
+                             
+
+                             
+
+
+                              </li>
+                          </ul>
+                
+                    </div>
+
+                       <button class = "btn btn-success" id = "createGroup" ng-click = "ctrl.createGroup()" ng-disabled ="ctrl.groupDisable" > Create Group! </button>
+                </div>
+
+
+
