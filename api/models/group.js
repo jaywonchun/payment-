@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+var groupSchema = new Schema({
    
 	groupId: {
 		type: String,
@@ -31,7 +31,7 @@ var userSchema = new Schema({
   	updated_at: Date
 })
 
-userSchema.pre('save', function(next) {
+groupSchema.pre('save', function(next) {
     // Get the current date.
     var currentDate = new Date();
 
@@ -47,7 +47,7 @@ userSchema.pre('save', function(next) {
     next();
 });
 
-var Group = mongoose.model('Group', userSchema);
+var Group = mongoose.model('Group', groupSchema);
 module.exports = Group;
 
 

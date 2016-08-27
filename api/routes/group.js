@@ -1,4 +1,4 @@
-var Group = require('./../models/Group');
+var Group = require('./../models/group');
 var router 	= require('express').Router();
 
 

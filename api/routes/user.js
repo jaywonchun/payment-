@@ -1,4 +1,4 @@
-var Users = require('./../models/Users');
+var Users = require('./../models/user');
 var router 	= require('express').Router();
 
 //only works when its first

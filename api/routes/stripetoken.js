@@ -1,4 +1,4 @@
-var Users = require('./../models/Users');
+var Users = require('./../models/user');
 var router = require('express').Router(); 
 
 var stripe = require("stripe")(

@@ -103,7 +103,7 @@
 					//why this way?
 					listVm.owe = uploadTable(res);
 
-					console.log(listVm.owe, "WTFFFF")
+					//console.log(listVm.owe, "WTFFFF")
 
 					listVm.sum = calculateSum(listVm.owe); 
 

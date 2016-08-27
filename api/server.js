@@ -1,6 +1,6 @@
 var express = require('express'); 
 var mongoose = require('mongoose');
-var models = require('./models/Users');
+//var models = require('./models');
 var bodyParser = require('body-parser');
 
 var app = express();
@@ -60,7 +60,7 @@ pal.on('connection', function(socket){
          });
 
        
-  });
+  }); 
 
 });
 
