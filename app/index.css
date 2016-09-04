@@ -1,18 +1,11 @@
 /*global*/
-
 .wrapper {
 	height:100%;
 }
 
-/*google fonts*/
-
 #btn-danger {
   background-color: #77CC51
 }
-
-
-
-
 
 ul
 {
@@ -42,19 +35,8 @@ ul
   right:80px;
 }
 
-
-
-
-
 /*home*/
-.jumbotron {
-	background-image: url("images/Fintech.jpg");
-    background-size: cover;
-   	padding-top: 0px;
-   	min-height: 670px;
-   	background-position: 0px -58px;
 
-}
 
 .jumbotron h2 {
 	color: #eeba30;
@@ -84,9 +66,6 @@ ul
 
 }
 
-/*.formBox h1{
-	position: absolute;
-}*/
 
 .formNameStyle{
 	display: inline;
@@ -98,8 +77,6 @@ ul
 	margin-bottom:20px;
 
 }
-
-
 
 .formStyle {
 	width: 334px;
@@ -142,10 +119,6 @@ ul
 #loginForm #username, #password  {
 	    background-color: rgb(250, 255, 189);
 }
-
-
-
-
 
 /*hover*/
 
@@ -255,15 +228,7 @@ ul
   background-color: #ABBFBA;
   min-height: 600px;
   position: relative;
-
-/*    -webkit-transition:all linear 2s;
-  transition:all linear 2s;*/
-
 }
-
-/*#groupdetail.ng-hide {
-  opacity:0;
-}*/
 
 
 #charge{
@@ -341,8 +306,8 @@ text-align: center;
   overflow:hidden; 
   overflow-y:auto;
   top:76px;
-min-height:500px
-;height:200px; 
+  min-height:500px;
+  height:200px; 
 
 }
 
@@ -370,12 +335,10 @@ min-height:500px
 
 
 .chargelist {
-  /*margin-right: 40px;
-  position: relative;*/
- /* top:10px;*/
-font-family: 'Poiret One', cursive;
-color:black;
-font-weight: bold;
+
+  font-family: 'Poiret One', cursive;
+  color:black;
+  font-weight: bold;
   font-size: 21px;
 
 }
@@ -409,10 +372,9 @@ font-family: 'Baloo Chettan', cursive;
 /*invoice*/
 
 .invoice-box{
-        max-width:400px;
-        width:317px;
-        margin-left:30px;
-      
+/*        max-width:400px;
+*/        margin-left:42px;
+        width: 324px;
         padding:30px;
         border:1px solid #eee;
         box-shadow:0 0 10px rgba(0, 0, 0, .15);
@@ -495,8 +457,6 @@ font-family: 'Baloo Chettan', cursive;
     padding-top: 0px;
     min-height: 670px;
     background-position: 0px -58px;
-    min-width: 1364px;
-    width: 1364px;
 
 }
 #ifnogroup {
@@ -515,8 +475,8 @@ font-family: 'Baloo Chettan', cursive;
 #stack {
   min-height: 500px;
   position: absolute;
-  left:372px;
-  width:959px;
+  left:335px;
+  width:1017px;
   top:178px;
   min-height: 605px;
    -webkit-transition:all linear 1s;
@@ -577,10 +537,10 @@ font-family: 'Comfortaa', cursive;
             text-align:center;
         }
         
-        .invoice-box table tr.information table td{
-            width:100%;
-            display:block;
-            text-align:center;
-        }
-  }
+.invoice-box table tr.information table td{
+    width:100%;
+    display:block;
+    text-align:center;
+}
+  
 

@@ -1,50 +1,29 @@
-/*angular.module('coupApp')
-.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
-  $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-});
-
-
-*/
-
-
 
 (function() {
 
-angular
-  .module('CoupApp')
-  .controller('ModalInstanceCtrl', ModalInstanceCtrl);
+  angular
+    .module('CoupApp')
+    .controller('ModalInstanceCtrl', ModalInstanceCtrl);
 
- function ModalInstanceCtrl ($uibModalInstance, items, $http, $state) {
-  console.log("HELLO");
-  var modalVm = this; 
-  modalVm.showWarning = false; 
-  modalVm.auth_btn ="Login";
-  modalVm.items = items;
-  modalVm.authenticate = authenticate;
-  modalVm.ok = ok;
-  modalVm.cancel = cancel; 
- 
-  
- function ok () {
-    $uibModalInstance.close(modalVm.selected.item);
-  };
+   function ModalInstanceCtrl ($uibModalInstance, items, $http, $state) {
+    console.log("HELLO");
+    var modalVm = this; 
+    modalVm.showWarning = false; 
+    modalVm.auth_btn ="Login";
+    modalVm.items = items;
+    modalVm.authenticate = authenticate;
+    modalVm.ok = ok;
+    modalVm.cancel = cancel; 
+   
+    
+   function ok () {
+      $uibModalInstance.close(modalVm.selected.item);
+    };
 
 
-  function cancel(){
-    $uibModalInstance.dismiss('cancel');
-  };
+    function cancel(){
+      $uibModalInstance.dismiss('cancel');
+    };
 
 
 

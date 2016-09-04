@@ -13,10 +13,6 @@
 			listVm.charges = [];
 			listVm.pay = pay;
 			listVm.payment_btn= "SUBMIT CHARGE"
-
-
-////////////////////////////THIS MAY CAUSE PROBLEM
-
 			listVm.isClicked = null;
 			listVm.hideoriginal = false;
 
@@ -26,30 +22,23 @@
 
 
  			listVm.denyLeave = function() {
-			 	console.log("LOGGINGFC")
 			        Notification.error({message: "There are pending payments! "});
 			    };
 
 			listVm.left = function() {
-			 	console.log("LOGGINGFC")
 			        Notification.success({message: "You left the group! "});
 			    };
 
 			listVm.submit = function() {
-			 	console.log("LOGGINGFC")
 			        Notification.success({message: "Post Submitted! "});
 			    };   
   
 			
-		/*	var string = "foo",
-    substring = "oo";*/
-
 
 			groupSrv.checkGroup().then(function(res){
 				if(res.data.length === 0) {
 					listVm.hideoriginal = true // ng-hide
 					 // ng-show 
-					console.log("logging here");
 				}else {
 					listVm.isClicked = true
 				}
@@ -57,15 +46,10 @@
 				for(i = 0; i < res.data.length; i++) {
 
 					if(res.data[i].Name.indexOf(localStorage.username) !== -1){
-						console.log("hi")
-						console.log()
-						console.log(res);
 
 						//check if any goups present, if they aren't hide the original content
 
-
 						listVm.groups.push(res.data[i].Name);
-						console.log(listVm.groups);
 
 					}
 				}
@@ -74,17 +58,14 @@
 
 	
 
-			listVm.update = update;
-			listVm.postCharge= postCharge;
-			listVm.uploadTable = uploadTable; 
-			listVm.leaveGroup = leaveGroup;
+					listVm.update = update;
+					listVm.postCharge= postCharge;
+					listVm.uploadTable = uploadTable; 
+					listVm.leaveGroup = leaveGroup;
 			
 		
 
-
-
 			function update(members, index) {
-				console.log(index);
 				listVm.isClicked= false;
 				listVm.index = index; 
 
@@ -111,12 +92,6 @@
 
 					console.log(listVm.sum);
 				
-
-
-
-
-
-
 				})
 			}
 
@@ -131,7 +106,6 @@
 
 
 				groupSrv.postCharge(chargeInfo, listVm.groupId).then(function(res) {
-					console.log(res,'getting res');
 					listVm.submit();
 
 					return res.data.amount
@@ -147,7 +121,6 @@
 				groupSrv.updateAmount(balance, listVm.groupId)
 				
 				.then(function(res){
-					console.log("GOT FINAL", res.data.$inc.Balance);
 					var postBalance = res.data.$inc.Balance;
 					listVm.update(listVm.members); 
 					return postBalance;
@@ -157,12 +130,9 @@
 					console.log(listVm.groupId);
 					//from route parameter
 					
-					console.log(amounts, "next step");
 					var amount = amounts;
-					console.log("amount", amount)
 
 					var currentMembers = listVm.members;
-					console.log(currentMembers, "getting current members");
 					
 //here filter out the one who posted the charge
 
@@ -285,8 +255,6 @@
 
 			 	function leaveGroup() {
 			 		//var theyoweyou = true;
-			 			console.log(listVm.userOwing);
-			 			console.log(listVm.groupId);
 
 			 		var proceeedleave = true;
 			 		var count = 0;
@@ -297,54 +265,25 @@
 			 		}else {
 			 		
 			 		for(i = 0; i < listVm.userOwing.length; i ++){
-			 			console.log("hereee")
 			 			count += listVm.userOwing[i].owe.length
 			 			//console.log(listVm.userOwing[i].owe.[0].oweName)		 			
 			 		}
 			 	}
-			 			console.log(count, "COUNTTTT");
-			 			console.log("fsdfd")
 
 			 		if(count === 0) {
-			 			console.log("now you are leaving for good", count)
 			 				$http.delete('api/group/deletegroup' + listVm.groupId)
 			 				.then(function(res){
-			 					console.log("deleted")
 			 					listVm.left();
 
 			 					//updating group list 
 
 
-						console.log(listVm.groups);
 
 			 		groupSrv.checkGroup().then(function(res){
-			
-
-			
-					
 
 					listVm.groups = getNewGroup(res);
 
-			
-
-
-
-
-
-
-
-
-
 					})
-
-
-
-
-
-
-
-
-
 
 			 				}, function (error) {
 			 					console.log("couldnt delete ", error)
@@ -353,15 +292,7 @@
 
 
 
-
-
-
-
-
-
-
 			 		}else{
-			 			console.log("cant leave", count)
 			 			listVm.denyLeave();
 			 			return false;
 			 		}
@@ -370,12 +301,10 @@
 
 
 				function getNewGroup(res) {
-					console.log("getting new")
 				   var updatedGroup = [];
 
 						for(z = 0 ; z < res.data.length; z ++) {
 							var groupName = res.data[z].Name;
-							console.log(groupName);
 							updatedGroup.push(groupName);
 						}
 
