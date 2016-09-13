@@ -48,8 +48,38 @@
 					if(res.data[i].Name.indexOf(localStorage.username) !== -1){
 
 						//check if any goups present, if they aren't hide the original content
+						console.log(res.data[i])
+						for(t = 0; t < res.data[i].groupFriends.length; t++) {
+							var groupfriends = res.data[i].groupFriends[t].username;
 
-						listVm.groups.push(res.data[i].Name);
+							console.log(groupfriends)
+							if(groupfriends == localStorage.username) {
+							
+								var oweLength = res.data[i].groupFriends[t].owe.length;
+								console.log(oweLength, "sup");
+								if(oweLength > 0) {
+									var groupinfo = {
+										name: res.data[i].Name,
+										highlight: true
+									}
+
+									listVm.groups.push(groupinfo)
+
+								}else {
+									var groupinfo = {
+										name: res.data[i].Name,
+										highlight: false
+									}
+
+									listVm.groups.push(groupinfo)
+								}
+								
+							}
+						}
+
+						console.log(res.data[i])
+
+				//		listVm.groups.push(res.data[i].Name);
 
 					}
 				}
@@ -68,10 +98,14 @@
 			function update(members, index) {
 				listVm.isClicked= false;
 				listVm.index = index; 
+				console.log(listVm.index)
+
 
 
 				listVm.members = members;
-				var arrayConvert = members.split(',');
+								console.log(listVm.members)
+
+			var arrayConvert = members.split(',');
 				//console.log(array, "has been clicked");
 				groupSrv.getGroup(arrayConvert).then(function(res) {
 					listVm.object = res; 
@@ -281,7 +315,39 @@
 
 			 		groupSrv.checkGroup().then(function(res){
 
+
+
+
+
 					listVm.groups = getNewGroup(res);
+
+
+
+console.log(listVm.groups);
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 					})
 
@@ -302,12 +368,47 @@
 
 				function getNewGroup(res) {
 				   var updatedGroup = [];
+					for(i = 0; i < res.data.length; i++) {
 
-						for(z = 0 ; z < res.data.length; z ++) {
-							var groupName = res.data[z].Name;
-							updatedGroup.push(groupName);
+					if(res.data[i].Name.indexOf(localStorage.username) !== -1){
+
+						//check if any goups present, if they aren't hide the original content
+						console.log(res.data[i])
+						for(t = 0; t < res.data[i].groupFriends.length; t++) {
+							var groupfriends = res.data[i].groupFriends[t].username;
+
+							console.log(groupfriends)
+							if(groupfriends == localStorage.username) {
+							
+								var oweLength = res.data[i].groupFriends[t].owe.length;
+								console.log(oweLength, "sup");
+								if(oweLength > 0) {
+									var groupinfo = {
+										name: res.data[i].Name,
+										highlight: true
+									}
+
+									updatedGroup.push(groupinfo)
+
+								}else {
+									var groupinfo = {
+										name: res.data[i].Name,
+										highlight: false
+									}
+
+								updatedGroup.push(groupinfo)
+								}
+								
+							}
 						}
 
+						console.log(res.data[i])
+
+				//		listVm.groups.push(res.data[i].Name);
+
+					}
+				}
+						
 						return updatedGroup;
 					}
 				
@@ -315,3 +416,14 @@
 })()
 
 
+/*	function getNewGroup(res) {
+				   var updatedGroup = [];
+
+						for(z = 0 ; z < res.data.length; z ++) {
+							var groupName = res.data[z].Name;
+							console.log(groupName);
+							updatedGroup.push(groupName);
+						}
+
+						return updatedGroup;
+					}*/

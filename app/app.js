@@ -10,7 +10,8 @@
 			'angular-jwt',
 			'ngAnimate',
 			'angularPayments',
-			'ui-notification'
+			'ui-notification',
+			'angular-notification-icons'
 /*			'angular-stripe'
 */		]);
 
@@ -43,11 +44,14 @@
 					templateUrl: 'partials/navUser.html',
 					controller: 'accountNavCtrl as ctrl',
 					resolve:{
-							user:function($state){
+							user:function($state, groupSrv){
 									if(localStorage.authToken == '' || localStorage.authToken == undefined){
 										console.log("resoliving in if")
 							 			$state('nav.home');
+
 									}
+/*									return groupSrv.checkGroup();
+*/
 								}
 							 }					
 				})

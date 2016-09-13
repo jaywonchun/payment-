@@ -28,9 +28,38 @@
       </ul>
       
 
+
+
+
+
+
+  
+
+
+
+
       <ul class="nav navbar-nav navbar-right" id ="dropdowngreen">
-      
-        <li class="dropdown" uib-dropdown is-open="status.isopen">
+               <li class="dropdown" uib-dropdown on-toggle="ctrl.toggled(open)">
+
+              <a  href id="simple-dropdown" uib-dropdown-toggle>
+                <notification-icon count="ctrl.friendlist.length">
+                  <img src="images/bell.png">
+                  <i class="fa fa-envelope-o fa-3x"></i>
+                </notification-icon>
+              </a>
+
+  <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+        <li ng-repeat="item in ctrl.friendlist track by $index" > You have been charged $ {{item.amount}} to {{item.Postedby}} </li>
+  </ul>
+</li>
+
+
+
+            <li class="dropdown" id ="fagg" uib-dropdown is-open="status.isopen">
+
+
+
+
           <a   role="button" ng-click="ctrl.gotocc()" aria-haspopup="true" uib-dropdown-toggle  aria-expanded="false"> {{ctrl.name}} <span class="caret"></span></a>
           <ul class="dropdown-menu" id =droppayment  >
             <li><a ng-click = "ctrl.gotocc()">Payment method</a></li>
@@ -39,7 +68,11 @@
             <li><a ng-click ="ctrl.signOut()">Sign out</a></li>
           </ul>
         </li>
+
+        
+
       </ul>
+        
 
 
 
